@@ -61,13 +61,15 @@ INSTALLED_APPS = [
     # 3rd party apps
     'allauth',
     'allauth.account',
-
+    
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'dj_rest_auth.registration',
 
     'drf_yasg',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +82,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -215,3 +219,8 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(seconds=30),
     },
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    '*',
+]
